@@ -2,7 +2,7 @@ import { useState } from "react";
 import { TextInput, View, StyleSheet, Alert } from "react-native";
 import PrimaryButton from "../components/PrimaryButton";
 
-function StartGameScreen() {
+function StartGameScreen({ onPickedNumber }) {
   const [enteredNumber, setEnterNumber] = useState("");
 
   function numberInputHandler(enteredText) {
@@ -27,6 +27,8 @@ function StartGameScreen() {
       // Alert.prompt(); // would display dialog of the input
       return;
     }
+
+    onPickedNumber(chosenNumber);
   }
 
   return (
